@@ -1,0 +1,19 @@
+{
+  "name": "mern-stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NelsonPalaganas07/CISE_Repos.git"
+  },
+  "author": "Nelson Palaganas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NelsonPalaganas07/CISE_Repos/issues"
+  },
+  "homepage": "https://github.com/NelsonPalaganas07/CISE_Repos#readme"
+}
