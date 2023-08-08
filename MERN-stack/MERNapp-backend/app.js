@@ -9,7 +9,7 @@ async function startApp() {
     const client = await connectDB();
 
     // Your application logic goes here
-    app.get('/', (req, res) => res.send('Hello world! Testing nodemon with the help of chatGPT'));
+    app.get('/', (req, res) => res.send('Hello world! Testing MongoDB with the help of chatGPT'));
 
     const PORT = process.env.PORT || 8082;
     app.listen(PORT, () => {
