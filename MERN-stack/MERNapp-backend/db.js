@@ -1,27 +1,41 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+// const { MongoClient } = require('mongodb');
+// const config = require('config');
+
+// const uri = config.get('mongoURI');
+
+// async function connectDB() {
+//   try {
+//     const client = new MongoClient(uri, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     });
+
+//     await client.connect();
+//     console.log('Connected to MongoDB');
+//   } catch (error) {
+//     console.error('Failed to connect to MongoDB:', error);
+//     throw error;
+//   }
+// }
+
+// module.exports = connectDB;
+
+const mongoose = require('mongoose');
 const config = require('config');
+const db = config.get('mongoURI');
 
-const uri = config.get('mongoURI');
-
-async function connectDB() {
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
-
+const connectDB = async () => {
   try {
-    await client.connect();
-    console.log('Connected to MongoDB');
+    mongoose.set('strictQuery', true);
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+    });
 
-    // You can return the client if you need to interact with the database elsewhere
-    return client;
-  } catch (error) {
-    console.error('Failed to connect to MongoDB:', error);
-    throw error;
+    console.log('MongoDB is Connected...');
+  } catch (err) {
+    console.error(err.message);
+    process.exit(1);
   }
-}
+};
 
 module.exports = connectDB;

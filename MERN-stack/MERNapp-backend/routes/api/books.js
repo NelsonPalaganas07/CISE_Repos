@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Load Book model
-const Book = require('/Users/jaypalaganas/Desktop/STUDY_FILES/3rd year, Sem 2/ENSE701/CISE_Repos/MERN-stack/MERNapp-backend/routes/models/Book.js');
+const Book = require('../../models/Book.js');
 
 // @route GET api/books/test
 // @description tests books route
@@ -27,16 +27,19 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ nobookfound: 'No Book found' }));
 });
 
-// @route GET api/books
+// @route POST api/books
 // @description add/save book
 // @access Public
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
+  console.log('Request Body:', req.body)
   Book.create(req.body)
     .then(book => res.json({ msg: 'Book added successfully' }))
-    .catch(err => res.status(400).json({ error: 'Unable to add this book' }));
+    .catch(err => {
+      console.error('Error:', err);
+      res.status(400).json({ error: 'Unable to add this book' })});
 });
 
-// @route GET api/books/:id
+// @route PUT api/books/:id
 // @description Update book
 // @access Public
 router.put('/:id', (req, res) => {
@@ -47,7 +50,7 @@ router.put('/:id', (req, res) => {
     );
 });
 
-// @route GET api/books/:id
+// @route DELETE api/books/:id
 // @description Delete book by id
 // @access Public
 router.delete('/:id', (req, res) => {

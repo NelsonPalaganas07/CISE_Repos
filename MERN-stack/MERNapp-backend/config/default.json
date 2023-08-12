@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://pyd9365:Jaypalaganas07@clusters.r3gks3c.mongodb.net/?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://pyd9365:Jaypalaganas07@clusters.r3gks3c.mongodb.net/MERN-app?retryWrites=true&w=majority"
+  
 }
