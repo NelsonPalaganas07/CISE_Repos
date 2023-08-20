@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://pyd9365:SPEED@speed-cluster.lvwbcjq.mongodb.net/SPEED-db?retryWrites=true&w=majority"
+}
